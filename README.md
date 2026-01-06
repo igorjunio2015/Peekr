@@ -1,4 +1,4 @@
-# AI Overlay Agent 🤖
+# Peekr 👁️
 
 <div align="center">
 
@@ -8,7 +8,9 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 
-**A real-time AI assistant overlay for meetings, translations, and visual analysis**
+**Your AI assistant that peeks over your shoulder — always ready to help**
+
+*Um assistente de IA que espia por cima do seu ombro — sempre pronto para ajudar*
 
 [English](#english) | [Português](#português)
 
@@ -20,7 +22,7 @@
 
 ### 🎯 Overview
 
-AI Overlay Agent is a cross-platform desktop application that provides an always-on-top AI assistant overlay. Similar to gaming overlays like Crosshair X, but focused 100% on AI agents to help with meetings, real-time translation, visual analysis, and decision-making.
+**Peekr** is a cross-platform desktop application that provides an always-on-top AI assistant overlay. Like having a smart colleague peeking over your shoulder, ready to help with meetings, translations, visual analysis, and decision-making — without getting in your way.
 
 ### ✨ Features
 
@@ -41,8 +43,8 @@ AI Overlay Agent is a cross-platform desktop application that provides an always
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ai-overlay-agent.git
-cd ai-overlay-agent
+git clone https://github.com/yourusername/peekr.git
+cd peekr
 
 # Install dependencies
 pnpm install
@@ -69,7 +71,7 @@ pnpm dev
 ### 🏗️ Architecture
 
 ```
-ai-overlay-agent/
+peekr/
 ├── src/
 │   ├── main/                    # Electron main process
 │   │   ├── index.ts             # Window manager & IPC handlers
@@ -147,7 +149,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ### 🎯 Visão Geral
 
-AI Overlay Agent é uma aplicação desktop multiplataforma que fornece um assistente de IA sempre visível sobre outras janelas. Similar a overlays de jogos como Crosshair X, mas focado 100% em agentes de IA para ajudar em reuniões, tradução em tempo real, análise visual e tomada de decisão.
+**Peekr** é uma aplicação desktop multiplataforma que fornece um assistente de IA sempre visível sobre outras janelas. Como ter um colega inteligente espiando por cima do seu ombro, pronto para ajudar com reuniões, traduções, análise visual e tomada de decisão — sem atrapalhar.
 
 ### ✨ Funcionalidades
 
@@ -168,8 +170,8 @@ AI Overlay Agent é uma aplicação desktop multiplataforma que fornece um assis
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/yourusername/ai-overlay-agent.git
-cd ai-overlay-agent
+git clone https://github.com/yourusername/peekr.git
+cd peekr
 
 # Instalar dependências
 pnpm install
@@ -196,7 +198,7 @@ pnpm dev
 ### 🏗️ Arquitetura
 
 ```
-ai-overlay-agent/
+peekr/
 ├── src/
 │   ├── main/                    # Processo principal do Electron
 │   │   ├── index.ts             # Gerenciador de janelas & IPC
@@ -274,6 +276,6 @@ Licença MIT - veja [LICENSE](LICENSE) para detalhes.
 
 **Made with ❤️ by the community**
 
-[Report Bug](https://github.com/yourusername/ai-overlay-agent/issues) · [Request Feature](https://github.com/yourusername/ai-overlay-agent/issues)
+[Report Bug](https://github.com/yourusername/peekr/issues) · [Request Feature](https://github.com/yourusername/peekr/issues)
 
 </div>
