@@ -2,6 +2,8 @@
 
 <div align="center">
 
+<img src="public/peekr_logo.png" alt="Peekr Logo" width="180" />
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
 ![Electron](https://img.shields.io/badge/Electron-29-47848F?logo=electron)
@@ -43,8 +45,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/peekr.git
-cd peekr
+git clone https://github.com/igorjunio2015/Peekr.git
+cd Peekr
 
 # Install dependencies
 pnpm install
@@ -170,7 +172,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/yourusername/peekr.git
+git clone https://github.com/igorjunio2015/Peekr.git
 cd peekr
 
 # Instalar dependências
@@ -276,6 +278,6 @@ Licença MIT - veja [LICENSE](LICENSE) para detalhes.
 
 **Made with ❤️ by the community**
 
-[Report Bug](https://github.com/yourusername/peekr/issues) · [Request Feature](https://github.com/yourusername/peekr/issues)
+[Report Bug](https://github.com/igorjunio2015/Peekr/issues) · [Request Feature](https://github.com/igorjunio2015/Peekr/issues)
 
 </div>

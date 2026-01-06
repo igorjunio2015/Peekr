@@ -1,4 +1,4 @@
-import { BrowserWindow, screen, Display } from 'electron'
+import { BrowserWindow, screen, Display, nativeImage } from 'electron'
 import * as path from 'path'
 
 export interface WindowConfig {
@@ -69,12 +69,18 @@ export class WindowManager {
       ...config,
     }
 
+    // Carregar ícone da aplicação
+    const iconPath = path.join(__dirname, '../../public/peekr_logo.png')
+    const icon = nativeImage.createFromPath(iconPath)
+
     // Criar janela normal no monitor primário
     const window = new BrowserWindow({
       width,
       height,
       x: 0,
       y: 0,
+      icon,
+      title: 'Peekr',
       transparent: defaultConfig.transparent,
       alwaysOnTop: defaultConfig.alwaysOnTop,
       frame: false,

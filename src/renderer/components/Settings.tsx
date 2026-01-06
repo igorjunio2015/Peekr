@@ -27,7 +27,8 @@ import {
   Database,
   AlertTriangle,
   Zap,
-  RefreshCw
+  RefreshCw,
+  Trash2
 } from 'lucide-react'
 import { MODEL_CONTEXT_INFO, type ModelContextInfo } from '../services/openai-service'
 
@@ -147,6 +148,8 @@ export const Settings: React.FC<SettingsProps> = ({ isOpen, onClose, settings, o
   const [autoCondense, setAutoCondense] = useState(true) // Auto-condensar quando exceder limite
   const [isSaving, setIsSaving] = useState(false)
   const [saveMessage, setSaveMessage] = useState('')
+  const [showResetConfirm, setShowResetConfirm] = useState(false)
+  const [isResetting, setIsResetting] = useState(false)
 
   // Carregar dispositivos de áudio e microfone
   useEffect(() => {
@@ -294,6 +297,40 @@ export const Settings: React.FC<SettingsProps> = ({ isOpen, onClose, settings, o
       } catch (e) {
         console.warn('Não foi possível aplicar proteção de conteúdo:', e)
       }
+    }
+  }
+
+  // Handler para resetar todas as configurações e dados
+  const handleReset = async () => {
+    setIsResetting(true)
+    try {
+      // Limpar localStorage
+      localStorage.clear()
+      
+      // Limpar todas as configurações do banco de dados
+      const settingsToReset = [
+        'api_key', 'system_prompt', 'model', 'language',
+        'audio_device', 'microphone_device', 'enable_microphone',
+        'silence_threshold', 'silence_duration', 'max_chunk_duration',
+        'infinite_loop_recording', 'extended_chunk_mode', 'hide_from_capture',
+        'overlay_opacity', 'color_theme', 'border_radius', 'blur_intensity',
+        'context_size', 'auto_condense'
+      ]
+      
+      for (const key of settingsToReset) {
+        try {
+          await onSave(key, '')
+        } catch (e) {
+          console.warn(`Erro ao limpar ${key}:`, e)
+        }
+      }
+      
+      // Recarregar a página para aplicar o reset
+      window.location.reload()
+    } catch (error) {
+      console.error('Erro ao resetar:', error)
+      setSaveMessage('Erro ao resetar')
+      setIsResetting(false)
     }
   }
 
@@ -1321,6 +1358,136 @@ export const Settings: React.FC<SettingsProps> = ({ isOpen, onClose, settings, o
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Reset Section */}
+        <div style={{
+          marginBottom: '16px',
+          padding: '12px',
+          background: 'rgba(127, 29, 29, 0.2)', // red-900 com opacidade
+          borderRadius: `${Math.min(radius, 12)}px`,
+          border: '1px solid rgba(239, 68, 68, 0.3)',
+        }}>
+          <h3 style={{
+            fontSize: '12px',
+            fontWeight: 500,
+            color: '#f87171',
+            marginBottom: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+          }}>
+            <Trash2 size={12} />
+            Zona de Perigo
+          </h3>
+          <p style={{
+            fontSize: '11px',
+            color: '#9ca3af',
+            marginBottom: '12px',
+          }}>
+            Resetar apaga todas as configurações, API key e histórico. A aplicação será reiniciada.
+          </p>
+          
+          {!showResetConfirm ? (
+            <button
+              onClick={() => setShowResetConfirm(true)}
+              style={{
+                width: '100%',
+                padding: '10px 16px',
+                background: 'rgba(127, 29, 29, 0.5)',
+                color: '#fca5a5',
+                borderRadius: `${Math.min(radius, 8)}px`,
+                border: '1px solid rgba(239, 68, 68, 0.3)',
+                fontSize: '12px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                transition: 'all 0.2s',
+              }}
+            >
+              <Trash2 size={14} />
+              Resetar Tudo
+            </button>
+          ) : (
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+            }}>
+              <div style={{
+                padding: '10px',
+                background: 'rgba(239, 68, 68, 0.1)',
+                borderRadius: '8px',
+                border: '1px solid rgba(239, 68, 68, 0.3)',
+              }}>
+                <p style={{
+                  fontSize: '11px',
+                  color: '#f87171',
+                  fontWeight: 500,
+                  marginBottom: '4px',
+                }}>
+                  ⚠️ Tem certeza?
+                </p>
+                <p style={{
+                  fontSize: '10px',
+                  color: '#fca5a5',
+                }}>
+                  Esta ação não pode ser desfeita!
+                </p>
+              </div>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button
+                  onClick={() => setShowResetConfirm(false)}
+                  style={{
+                    flex: 1,
+                    padding: '8px 12px',
+                    background: 'rgba(55, 65, 81, 0.5)',
+                    color: '#d1d5db',
+                    borderRadius: `${Math.min(radius, 6)}px`,
+                    border: '1px solid rgba(75, 85, 99, 0.5)',
+                    fontSize: '11px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={handleReset}
+                  disabled={isResetting}
+                  style={{
+                    flex: 1,
+                    padding: '8px 12px',
+                    background: 'linear-gradient(to right, #dc2626, #ef4444)',
+                    color: 'white',
+                    borderRadius: `${Math.min(radius, 6)}px`,
+                    border: 'none',
+                    fontSize: '11px',
+                    fontWeight: 500,
+                    cursor: isResetting ? 'not-allowed' : 'pointer',
+                    opacity: isResetting ? 0.5 : 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '4px',
+                  }}
+                >
+                  {isResetting ? (
+                    <>
+                      <RefreshCw size={12} style={{ animation: 'spin 1s linear infinite' }} />
+                      Resetando...
+                    </>
+                  ) : (
+                    <>
+                      <Trash2 size={12} />
+                      Confirmar Reset
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
