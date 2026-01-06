@@ -20,7 +20,40 @@
 
 ---
 
-## 📚 About This Project / Sobre Este Projeto
+## 📸 Screenshots
+
+<div align="center">
+
+### Initial Setup / Configuração Inicial
+<img src="public/screenshots/overlay_startup_openai_key.png" alt="OpenAI API Key Setup" width="400" />
+
+*Enter your OpenAI API key to get started / Digite sua chave da API OpenAI para começar*
+
+### Main Interface / Interface Principal
+<img src="public/screenshots/conversa_com_config_1.png" alt="Main Conversation Interface" width="600" />
+
+*AI conversation with settings panel / Conversa com IA e painel de configurações*
+
+### Conversation List / Lista de Conversas
+<img src="public/screenshots/conversa_com_lista_conversas.png" alt="Conversation List" width="600" />
+
+*Multiple conversations sidebar / Barra lateral com múltiplas conversas*
+
+### Settings & Customization / Configurações e Personalização
+<img src="public/screenshots/conversa_com_config_2.png" alt="Settings Panel" width="600" />
+
+*Customize appearance, audio settings, and more / Personalize aparência, configurações de áudio e mais*
+
+### Minimized Overlay / Overlay Minimizado
+<img src="public/screenshots/overlay_minimizado.png" alt="Minimized Overlay" width="200" />
+
+*Compact floating button with quick actions / Botão flutuante compacto com ações rápidas*
+
+</div>
+
+---
+
+## � About This Project / Sobre Este Projeto
 
 > **🎓 Educational & Open Source Project**
 > 

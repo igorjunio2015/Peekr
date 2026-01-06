@@ -1060,7 +1060,16 @@ export const Overlay: React.FC<OverlayProps> = ({ apiKey }) => {
               <span className="text-white text-xs font-bold drop-shadow-lg">REC</span>
             </div>
           ) : (
-            <span className="text-white text-sm font-bold drop-shadow-lg">AI</span>
+            <img
+              src="/peekr_logo.png"
+              alt="Peekr"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '50%',
+              }}
+            />
           )}
         </div>
 
