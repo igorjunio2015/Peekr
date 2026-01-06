@@ -1,28 +1,174 @@
-# AI Overlay Agent
+# AI Overlay Agent 🤖
 
-Uma extensão overlay multiplataforma para Windows, Mac e Linux que funciona como um agente de IA em tempo real. Similar ao Crosshair X da Steam, mas focado 100% em agentes de IA para ajudar em reuniões, tradução em tempo real, análise visual e tomada de decisão.
+<div align="center">
 
-## Funcionalidades
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+![Electron](https://img.shields.io/badge/Electron-29-47848F?logo=electron)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 
-✅ **Overlay Transparente** - Fica sempre visível sobre outras aplicações  
-✅ **Streaming em Tempo Real** - Respostas da IA aparecem conforme são geradas  
-✅ **Captura de Tela** - Analisa screenshots com GPT-4V  
-✅ **Tradução em Tempo Real** - Traduz conversas e conteúdo  
-✅ **Criação de Arquivos** - Salva transcrições e sugestões  
-✅ **Hotkeys Globais** - Atalhos de teclado que funcionam em qualquer aplicação  
-✅ **Multiplataforma** - Windows, macOS, Linux  
-✅ **Otimizado para Performance** - Leve e responsivo  
+**A real-time AI assistant overlay for meetings, translations, and visual analysis**
 
-## Requisitos
+[English](#english) | [Português](#português)
 
-- Node.js 16+
-- pnpm (ou npm/yarn)
-- Chave de API OpenAI
+</div>
 
-## Instalação
+---
+
+## English
+
+### 🎯 Overview
+
+AI Overlay Agent is a cross-platform desktop application that provides an always-on-top AI assistant overlay. Similar to gaming overlays like Crosshair X, but focused 100% on AI agents to help with meetings, real-time translation, visual analysis, and decision-making.
+
+### ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🎙️ **Voice Recording** | Record audio with microphone and system audio capture |
+| 🔊 **Audio Waveform** | Beautiful waveform visualization using WaveSurfer.js |
+| 📸 **Screenshot Analysis** | Capture and analyze screenshots with GPT-4 Vision |
+| 🌐 **Real-time Translation** | Translate conversations and content on-the-fly |
+| 💬 **AI Chat** | Stream responses from OpenAI in real-time |
+| 📝 **Export Conversations** | Export chat history as Markdown, JSON, or TXT |
+| ⌨️ **Global Hotkeys** | Keyboard shortcuts that work in any application |
+| 🖥️ **Multi-monitor Support** | Works across multiple displays |
+| 🎨 **Transparent Overlay** | Always visible on top of other applications |
+| 💾 **Persistent History** | SQLite database for conversation storage |
+
+### 🚀 Quick Start
 
 ```bash
-# Clonar ou extrair o projeto
+# Clone the repository
+git clone https://github.com/yourusername/ai-overlay-agent.git
+cd ai-overlay-agent
+
+# Install dependencies
+pnpm install
+
+# Run in development mode
+pnpm dev
+```
+
+### ⚙️ Requirements
+
+- Node.js 18+
+- pnpm (recommended) or npm/yarn
+- OpenAI API Key
+
+### ⌨️ Hotkeys
+
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl+Alt+A` | Toggle overlay visibility |
+| `Ctrl+Alt+S` | Capture screenshot and analyze |
+| `Ctrl+Alt+R` | Start/Stop recording |
+| `Ctrl+Alt+T` | Toggle translation mode |
+
+### 🏗️ Architecture
+
+```
+ai-overlay-agent/
+├── src/
+│   ├── main/                    # Electron main process
+│   │   ├── index.ts             # Window manager & IPC handlers
+│   │   ├── preload.ts           # Security bridge
+│   │   ├── hotkeys.ts           # Global hotkey registration
+│   │   ├── database-service.ts  # SQLite database
+│   │   ├── export-service.ts    # Export functionality
+│   │   ├── screenshot-service.ts # Screen capture
+│   │   └── window-manager.ts    # Window management
+│   ├── renderer/                # React renderer process
+│   │   ├── components/
+│   │   │   ├── Overlay.tsx      # Main overlay component
+│   │   │   ├── AudioWaveformWaveSurfer.tsx # Audio visualization
+│   │   │   ├── Settings.tsx     # Settings panel
+│   │   │   └── OverlayMenu.tsx  # Context menu
+│   │   ├── hooks/
+│   │   │   ├── useAudioRecording.ts    # Audio recording
+│   │   │   ├── useAIStreaming.ts       # OpenAI streaming
+│   │   │   ├── useTranslation.ts       # Translation
+│   │   │   ├── useDatabase.ts          # Database operations
+│   │   │   └── useExport.ts            # Export functionality
+│   │   └── services/
+│   │       └── openai-service.ts # OpenAI API integration
+│   └── shared/
+│       └── types.ts             # Shared TypeScript types
+├── package.json
+└── tsconfig.json
+```
+
+### 🛠️ Tech Stack
+
+- **Electron** - Cross-platform desktop framework
+- **React 18** - UI library with hooks
+- **TypeScript** - Type safety
+- **TailwindCSS** - Utility-first styling
+- **WaveSurfer.js** - Audio waveform visualization
+- **OpenAI API** - GPT-4, GPT-4 Vision, Whisper
+- **SQLite** - Local database (better-sqlite3)
+- **Vite** - Fast build tool
+
+### 📦 Build for Production
+
+```bash
+# Build the application
+pnpm build
+
+# Package for distribution
+pnpm package
+```
+
+### 🔒 Security
+
+- API keys stored locally only (never sent to external servers)
+- Electron `contextIsolation` enabled
+- Preload script validates all IPC communications
+- No telemetry or tracking
+
+### 🤝 Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+## Português
+
+### 🎯 Visão Geral
+
+AI Overlay Agent é uma aplicação desktop multiplataforma que fornece um assistente de IA sempre visível sobre outras janelas. Similar a overlays de jogos como Crosshair X, mas focado 100% em agentes de IA para ajudar em reuniões, tradução em tempo real, análise visual e tomada de decisão.
+
+### ✨ Funcionalidades
+
+| Funcionalidade | Descrição |
+|----------------|-----------|
+| 🎙️ **Gravação de Voz** | Grave áudio com microfone e captura de áudio do sistema |
+| 🔊 **Waveform de Áudio** | Visualização bonita de ondas usando WaveSurfer.js |
+| 📸 **Análise de Screenshots** | Capture e analise screenshots com GPT-4 Vision |
+| 🌐 **Tradução em Tempo Real** | Traduza conversas e conteúdo instantaneamente |
+| 💬 **Chat com IA** | Respostas em streaming da OpenAI em tempo real |
+| 📝 **Exportar Conversas** | Exporte histórico como Markdown, JSON ou TXT |
+| ⌨️ **Hotkeys Globais** | Atalhos de teclado que funcionam em qualquer aplicação |
+| 🖥️ **Suporte Multi-monitor** | Funciona em múltiplos displays |
+| 🎨 **Overlay Transparente** | Sempre visível sobre outras aplicações |
+| 💾 **Histórico Persistente** | Banco de dados SQLite para armazenamento |
+
+### 🚀 Início Rápido
+
+```bash
+# Clonar o repositório
+git clone https://github.com/yourusername/ai-overlay-agent.git
 cd ai-overlay-agent
 
 # Instalar dependências
@@ -32,132 +178,102 @@ pnpm install
 pnpm dev
 ```
 
-## Uso
+### ⚙️ Requisitos
 
-### Configuração Inicial
+- Node.js 18+
+- pnpm (recomendado) ou npm/yarn
+- Chave de API OpenAI
 
-1. Ao iniciar a aplicação, você será solicitado a inserir sua chave de API OpenAI
-2. A chave é armazenada localmente e nunca é enviada para servidores externos
-3. Clique em "Save API Key" para continuar
-
-### Hotkeys
+### ⌨️ Atalhos de Teclado
 
 | Atalho | Ação |
 |--------|------|
 | `Ctrl+Alt+A` | Ativar/Desativar overlay |
 | `Ctrl+Alt+S` | Capturar screenshot e analisar |
-| `Ctrl+Alt+T` | Ativar tradução (em desenvolvimento) |
+| `Ctrl+Alt+R` | Iniciar/Parar gravação |
+| `Ctrl+Alt+T` | Ativar modo tradução |
 
-### Interface
-
-O overlay aparece no canto inferior direito da tela com:
-
-- **Chat em tempo real** - Converse com a IA
-- **Análise de screenshots** - Envie capturas de tela para análise
-- **Histórico de mensagens** - Veja conversas anteriores
-- **Status de atividade** - Indicador de ativo/inativo
-
-## Arquitetura
+### 🏗️ Arquitetura
 
 ```
 ai-overlay-agent/
 ├── src/
-│   ├── main/           # Processo principal do Electron
-│   │   ├── index.ts    # Gerenciador de janelas e hotkeys
-│   │   └── preload.ts  # Bridge de segurança
-│   ├── renderer/       # Processo de renderização (React)
-│   │   ├── components/ # Componentes React
-│   │   ├── hooks/      # Hooks customizados
-│   │   ├── App.tsx     # Componente principal
-│   │   └── main.tsx    # Entrada do React
-│   └── shared/         # Código compartilhado
-│       └── types.ts    # Tipos TypeScript
-├── public/             # Arquivos estáticos
-├── package.json        # Dependências
-└── tsconfig.json       # Configuração TypeScript
+│   ├── main/                    # Processo principal do Electron
+│   │   ├── index.ts             # Gerenciador de janelas & IPC
+│   │   ├── preload.ts           # Bridge de segurança
+│   │   ├── hotkeys.ts           # Registro de hotkeys globais
+│   │   ├── database-service.ts  # Banco de dados SQLite
+│   │   ├── export-service.ts    # Funcionalidade de exportação
+│   │   ├── screenshot-service.ts # Captura de tela
+│   │   └── window-manager.ts    # Gerenciamento de janelas
+│   ├── renderer/                # Processo de renderização (React)
+│   │   ├── components/
+│   │   │   ├── Overlay.tsx      # Componente principal do overlay
+│   │   │   ├── AudioWaveformWaveSurfer.tsx # Visualização de áudio
+│   │   │   ├── Settings.tsx     # Painel de configurações
+│   │   │   └── OverlayMenu.tsx  # Menu de contexto
+│   │   ├── hooks/
+│   │   │   ├── useAudioRecording.ts    # Gravação de áudio
+│   │   │   ├── useAIStreaming.ts       # Streaming OpenAI
+│   │   │   ├── useTranslation.ts       # Tradução
+│   │   │   ├── useDatabase.ts          # Operações de banco
+│   │   │   └── useExport.ts            # Funcionalidade de exportação
+│   │   └── services/
+│   │       └── openai-service.ts # Integração com API OpenAI
+│   └── shared/
+│       └── types.ts             # Tipos TypeScript compartilhados
+├── package.json
+└── tsconfig.json
 ```
 
-## Stack Tecnológico
+### 🛠️ Stack Tecnológico
 
-- **Electron** - Framework multiplataforma
-- **React** - UI responsiva
-- **TypeScript** - Type safety
-- **TailwindCSS** - Styling
-- **OpenAI API** - Streaming de respostas
-- **Vite** - Build tool
+- **Electron** - Framework desktop multiplataforma
+- **React 18** - Biblioteca UI com hooks
+- **TypeScript** - Segurança de tipos
+- **TailwindCSS** - Estilização utility-first
+- **WaveSurfer.js** - Visualização de waveform de áudio
+- **OpenAI API** - GPT-4, GPT-4 Vision, Whisper
+- **SQLite** - Banco de dados local (better-sqlite3)
+- **Vite** - Build tool rápido
 
-## Build para Produção
+### 📦 Build para Produção
 
 ```bash
-# Compilar para produção
+# Compilar a aplicação
 pnpm build
 
-# Testar build
-pnpm preview
+# Empacotar para distribuição
+pnpm package
 ```
 
-## Variáveis de Ambiente
+### 🔒 Segurança
 
-Crie um arquivo `.env` na raiz do projeto (opcional):
-
-```env
-VITE_API_ENDPOINT=https://api.openai.com/v1
-```
-
-## Segurança
-
-- A chave de API é armazenada apenas localmente no `localStorage`
-- Nenhuma comunicação com servidores externos, exceto OpenAI
-- O Electron usa `contextIsolation` para segurança
+- Chaves de API armazenadas apenas localmente (nunca enviadas para servidores externos)
+- `contextIsolation` do Electron habilitado
 - Preload script valida todas as comunicações IPC
+- Sem telemetria ou rastreamento
 
-## Próximas Funcionalidades
-
-- [ ] Suporte a múltiplas LLMs (Claude, Gemini, etc)
-- [ ] Tradução automática com streaming
-- [ ] Reconhecimento de voz
-- [ ] Criação automática de arquivos
-- [ ] Histórico persistente
-- [ ] Temas customizáveis
-- [ ] Integração com Zoom/Teams
-- [ ] Análise de documentos
-
-## Troubleshooting
-
-### Overlay não aparece
-- Verifique se o Electron foi iniciado corretamente
-- Tente pressionar `Ctrl+Alt+A` para ativar
-
-### API key não funciona
-- Verifique se a chave é válida em https://platform.openai.com/account/api-keys
-- Certifique-se de ter créditos disponíveis
-
-### Performance lenta
-- Feche outras aplicações pesadas
-- Reduza a resolução da captura de tela
-- Verifique sua conexão de internet
-
-## Contribuindo
+### 🤝 Contribuindo
 
 Contribuições são bem-vindas! Por favor:
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
+1. Faça um fork do repositório
+2. Crie uma branch para sua feature (`git checkout -b feature/NovaFeature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona NovaFeature'`)
+4. Push para a branch (`git push origin feature/NovaFeature`)
 5. Abra um Pull Request
 
-## Licença
+### 📄 Licença
 
-MIT License - veja LICENSE para detalhes
+Licença MIT - veja [LICENSE](LICENSE) para detalhes.
 
-## Suporte
+---
 
-Para reportar bugs ou sugerir features, abra uma issue no GitHub.
+<div align="center">
 
-## Roadmap
+**Made with ❤️ by the community**
 
-- v1.1: Suporte a múltiplas LLMs
-- v1.2: Tradução em tempo real
-- v1.3: Integração com plataformas de videoconferência
-- v2.0: Análise de vídeo em tempo real
+[Report Bug](https://github.com/yourusername/ai-overlay-agent/issues) · [Request Feature](https://github.com/yourusername/ai-overlay-agent/issues)
+
+</div>
