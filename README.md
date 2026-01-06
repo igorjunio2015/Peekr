@@ -20,11 +20,28 @@
 
 ---
 
+## 📚 About This Project / Sobre Este Projeto
+
+> **🎓 Educational & Open Source Project**
+> 
+> This project was created for **learning purposes** and to **help people** who need a simple AI assistant application. It's not intended for commercial use — just a tool to assist students, developers, and anyone who wants to learn or needs help with daily tasks.
+>
+> **🎓 Projeto Educacional & Open Source**
+> 
+> Este projeto foi criado para **fins de aprendizado** e para **ajudar pessoas** que precisam de uma aplicação simples de assistente de IA. Não é destinado para uso comercial — apenas uma ferramenta para auxiliar estudantes, desenvolvedores e qualquer pessoa que queira aprender ou precise de ajuda com tarefas do dia a dia.
+
+---
+
 ## English
 
 ### 🎯 Overview
 
-**Peekr** is a cross-platform desktop application that provides an always-on-top AI assistant overlay. Like having a smart colleague peeking over your shoulder, ready to help with meetings, translations, visual analysis, and decision-making — without getting in your way.
+**Peekr** is a simple, open-source desktop application that provides an always-on-top AI assistant overlay. Think of it as having a helpful friend peeking over your shoulder, ready to assist with:
+
+- 📝 Taking notes during meetings
+- 🌐 Real-time translation
+- 📸 Analyzing what's on your screen
+- 💬 Quick AI conversations
 
 ### ✨ Features
 
@@ -41,7 +58,9 @@
 | 🎨 **Transparent Overlay** | Always visible on top of other applications |
 | 💾 **Persistent History** | SQLite database for conversation storage |
 
-### 🚀 Quick Start
+### 🚀 Getting Started
+
+This project is meant to be run in **development mode**. There's no production build or installer — just clone and run!
 
 ```bash
 # Clone the repository
@@ -51,7 +70,7 @@ cd Peekr
 # Install dependencies
 pnpm install
 
-# Run in development mode
+# Run the application
 pnpm dev
 ```
 
@@ -59,7 +78,7 @@ pnpm dev
 
 - Node.js 18+
 - pnpm (recommended) or npm/yarn
-- OpenAI API Key
+- OpenAI API Key (get yours at [platform.openai.com](https://platform.openai.com/api-keys))
 
 ### ⌨️ Hotkeys
 
@@ -70,80 +89,38 @@ pnpm dev
 | `Ctrl+Alt+R` | Start/Stop recording |
 | `Ctrl+Alt+T` | Toggle translation mode |
 
-### 🏗️ Architecture
+### 🛠️ Tech Stack (for learning)
 
-```
-peekr/
-├── src/
-│   ├── main/                    # Electron main process
-│   │   ├── index.ts             # Window manager & IPC handlers
-│   │   ├── preload.ts           # Security bridge
-│   │   ├── hotkeys.ts           # Global hotkey registration
-│   │   ├── database-service.ts  # SQLite database
-│   │   ├── export-service.ts    # Export functionality
-│   │   ├── screenshot-service.ts # Screen capture
-│   │   └── window-manager.ts    # Window management
-│   ├── renderer/                # React renderer process
-│   │   ├── components/
-│   │   │   ├── Overlay.tsx      # Main overlay component
-│   │   │   ├── AudioWaveformWaveSurfer.tsx # Audio visualization
-│   │   │   ├── Settings.tsx     # Settings panel
-│   │   │   └── OverlayMenu.tsx  # Context menu
-│   │   ├── hooks/
-│   │   │   ├── useAudioRecording.ts    # Audio recording
-│   │   │   ├── useAIStreaming.ts       # OpenAI streaming
-│   │   │   ├── useTranslation.ts       # Translation
-│   │   │   ├── useDatabase.ts          # Database operations
-│   │   │   └── useExport.ts            # Export functionality
-│   │   └── services/
-│   │       └── openai-service.ts # OpenAI API integration
-│   └── shared/
-│       └── types.ts             # Shared TypeScript types
-├── package.json
-└── tsconfig.json
-```
+This project is a great way to learn about:
 
-### 🛠️ Tech Stack
+- **Electron** - Building desktop apps with web technologies
+- **React 18** - Modern React with hooks
+- **TypeScript** - Type-safe JavaScript
+- **TailwindCSS** - Utility-first CSS
+- **WaveSurfer.js** - Audio visualization
+- **OpenAI API** - AI integration (GPT-4, Vision, Whisper)
+- **SQLite** - Local database with better-sqlite3
+- **Vite** - Fast development server
 
-- **Electron** - Cross-platform desktop framework
-- **React 18** - UI library with hooks
-- **TypeScript** - Type safety
-- **TailwindCSS** - Utility-first styling
-- **WaveSurfer.js** - Audio waveform visualization
-- **OpenAI API** - GPT-4, GPT-4 Vision, Whisper
-- **SQLite** - Local database (better-sqlite3)
-- **Vite** - Fast build tool
+### 🔒 Privacy & Security
 
-### 📦 Build for Production
-
-```bash
-# Build the application
-pnpm build
-
-# Package for distribution
-pnpm package
-```
-
-### 🔒 Security
-
-- API keys stored locally only (never sent to external servers)
-- Electron `contextIsolation` enabled
-- Preload script validates all IPC communications
-- No telemetry or tracking
+- ✅ API keys stored locally only
+- ✅ No data sent to external servers (except OpenAI API)
+- ✅ No telemetry or tracking
+- ✅ Electron security best practices
 
 ### 🤝 Contributing
 
-Contributions are welcome! Please:
+This is an open project for learning! Feel free to:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork and experiment
+2. Open issues with questions
+3. Submit PRs with improvements
+4. Share with others who might find it useful
 
 ### 📄 License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License - Use it, learn from it, share it!
 
 ---
 
@@ -151,7 +128,12 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ### 🎯 Visão Geral
 
-**Peekr** é uma aplicação desktop multiplataforma que fornece um assistente de IA sempre visível sobre outras janelas. Como ter um colega inteligente espiando por cima do seu ombro, pronto para ajudar com reuniões, traduções, análise visual e tomada de decisão — sem atrapalhar.
+**Peekr** é uma aplicação desktop simples e open source que fornece um assistente de IA sempre visível sobre outras janelas. Pense nele como um amigo prestativo espiando por cima do seu ombro, pronto para ajudar com:
+
+- 📝 Fazer anotações durante reuniões
+- 🌐 Tradução em tempo real
+- 📸 Analisar o que está na sua tela
+- 💬 Conversas rápidas com IA
 
 ### ✨ Funcionalidades
 
@@ -168,17 +150,19 @@ MIT License - see [LICENSE](LICENSE) for details.
 | 🎨 **Overlay Transparente** | Sempre visível sobre outras aplicações |
 | 💾 **Histórico Persistente** | Banco de dados SQLite para armazenamento |
 
-### 🚀 Início Rápido
+### 🚀 Como Começar
+
+Este projeto é feito para rodar em **modo de desenvolvimento**. Não há build de produção ou instalador — apenas clone e rode!
 
 ```bash
 # Clonar o repositório
 git clone https://github.com/igorjunio2015/Peekr.git
-cd peekr
+cd Peekr
 
 # Instalar dependências
 pnpm install
 
-# Executar em modo desenvolvimento
+# Rodar a aplicação
 pnpm dev
 ```
 
@@ -186,7 +170,7 @@ pnpm dev
 
 - Node.js 18+
 - pnpm (recomendado) ou npm/yarn
-- Chave de API OpenAI
+- Chave de API OpenAI (obtenha a sua em [platform.openai.com](https://platform.openai.com/api-keys))
 
 ### ⌨️ Atalhos de Teclado
 
@@ -197,86 +181,48 @@ pnpm dev
 | `Ctrl+Alt+R` | Iniciar/Parar gravação |
 | `Ctrl+Alt+T` | Ativar modo tradução |
 
-### 🏗️ Arquitetura
+### 🛠️ Stack Tecnológico (para aprendizado)
 
-```
-peekr/
-├── src/
-│   ├── main/                    # Processo principal do Electron
-│   │   ├── index.ts             # Gerenciador de janelas & IPC
-│   │   ├── preload.ts           # Bridge de segurança
-│   │   ├── hotkeys.ts           # Registro de hotkeys globais
-│   │   ├── database-service.ts  # Banco de dados SQLite
-│   │   ├── export-service.ts    # Funcionalidade de exportação
-│   │   ├── screenshot-service.ts # Captura de tela
-│   │   └── window-manager.ts    # Gerenciamento de janelas
-│   ├── renderer/                # Processo de renderização (React)
-│   │   ├── components/
-│   │   │   ├── Overlay.tsx      # Componente principal do overlay
-│   │   │   ├── AudioWaveformWaveSurfer.tsx # Visualização de áudio
-│   │   │   ├── Settings.tsx     # Painel de configurações
-│   │   │   └── OverlayMenu.tsx  # Menu de contexto
-│   │   ├── hooks/
-│   │   │   ├── useAudioRecording.ts    # Gravação de áudio
-│   │   │   ├── useAIStreaming.ts       # Streaming OpenAI
-│   │   │   ├── useTranslation.ts       # Tradução
-│   │   │   ├── useDatabase.ts          # Operações de banco
-│   │   │   └── useExport.ts            # Funcionalidade de exportação
-│   │   └── services/
-│   │       └── openai-service.ts # Integração com API OpenAI
-│   └── shared/
-│       └── types.ts             # Tipos TypeScript compartilhados
-├── package.json
-└── tsconfig.json
-```
+Este projeto é uma ótima forma de aprender sobre:
 
-### 🛠️ Stack Tecnológico
+- **Electron** - Construindo apps desktop com tecnologias web
+- **React 18** - React moderno com hooks
+- **TypeScript** - JavaScript com tipagem
+- **TailwindCSS** - CSS utility-first
+- **WaveSurfer.js** - Visualização de áudio
+- **OpenAI API** - Integração com IA (GPT-4, Vision, Whisper)
+- **SQLite** - Banco de dados local com better-sqlite3
+- **Vite** - Servidor de desenvolvimento rápido
 
-- **Electron** - Framework desktop multiplataforma
-- **React 18** - Biblioteca UI com hooks
-- **TypeScript** - Segurança de tipos
-- **TailwindCSS** - Estilização utility-first
-- **WaveSurfer.js** - Visualização de waveform de áudio
-- **OpenAI API** - GPT-4, GPT-4 Vision, Whisper
-- **SQLite** - Banco de dados local (better-sqlite3)
-- **Vite** - Build tool rápido
+### 🔒 Privacidade & Segurança
 
-### 📦 Build para Produção
-
-```bash
-# Compilar a aplicação
-pnpm build
-
-# Empacotar para distribuição
-pnpm package
-```
-
-### 🔒 Segurança
-
-- Chaves de API armazenadas apenas localmente (nunca enviadas para servidores externos)
-- `contextIsolation` do Electron habilitado
-- Preload script valida todas as comunicações IPC
-- Sem telemetria ou rastreamento
+- ✅ Chaves de API armazenadas apenas localmente
+- ✅ Nenhum dado enviado para servidores externos (exceto API da OpenAI)
+- ✅ Sem telemetria ou rastreamento
+- ✅ Melhores práticas de segurança do Electron
 
 ### 🤝 Contribuindo
 
-Contribuições são bem-vindas! Por favor:
+Este é um projeto aberto para aprendizado! Sinta-se à vontade para:
 
-1. Faça um fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/NovaFeature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona NovaFeature'`)
-4. Push para a branch (`git push origin feature/NovaFeature`)
-5. Abra um Pull Request
+1. Fazer fork e experimentar
+2. Abrir issues com dúvidas
+3. Enviar PRs com melhorias
+4. Compartilhar com outros que possam achar útil
 
 ### 📄 Licença
 
-Licença MIT - veja [LICENSE](LICENSE) para detalhes.
+Licença MIT - Use, aprenda, compartilhe!
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by the community**
+**Made with ❤️ for learning and helping others**
+
+*Feito com ❤️ para aprender e ajudar outros*
+
+🎓 **Educational Project** | **Projeto Educacional** 🎓
 
 [Report Bug](https://github.com/igorjunio2015/Peekr/issues) · [Request Feature](https://github.com/igorjunio2015/Peekr/issues)
 
